@@ -2,6 +2,16 @@ import { useRef, useContext } from 'react';
 import { RoutineContext } from '../../App';
 import './Table.modules.css';
 
+interface IRoutine {
+  id: number,
+  day_name: string,
+  start_time: string,
+  end_time: string,
+  subject_name: string,
+  teacher_name: string,
+  room_number: string
+}
+
 const times = [
   '8:00-8:50',
   '8:50-9:40',
@@ -58,14 +68,14 @@ const Table = () => {
         </thead>
         <tbody>
           {
-            routine.map((result1: any) => {
+            routine.map((result1: IRoutine) => {
               if (dayRef.current !== result1.day_name) {
                 dayRef.current = result1.day_name;
                 return (
                   <tr key={result1.id}>
                     <td>{result1.day_name}</td>
                     {
-                      routine.map((result2: any) => {
+                      routine.map((result2: IRoutine) => {
                         if (result1.day_name === result2.day_name) {
                           return (
                             <td key={result2.id}>
