@@ -20,7 +20,7 @@ const Table = () => {
   const { selectedSection, isRoutineAvailable, isRoutineLoading, isRoutineError, routine } = useContext(RoutineContext);
   const dayRef = useRef('');
   const noRoutineStyles = {
-    margin: '10px 0px 250px 0px'
+    margin: '10px 0px 350px 0px'
   }
 
   if (isRoutineLoading) return (
