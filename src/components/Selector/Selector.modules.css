@@ -1,0 +1,55 @@
+.selector-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 90%;
+    margin: 25px 0px 10px 0px;
+    padding: 8px 0px;
+    border: 1px solid var(--gray3);
+    border-radius: var(--border-radius);
+}
+
+.selector-container div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 30%;
+}
+
+.selector-container div label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    margin-right: 10px;
+}
+
+.selector-container div select {
+    padding: 3px 12px;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.selector-container div select option {
+    background-color: var(--gray5);
+    color: var(--gray1);
+}
+
+@media (prefers-color-scheme: light) {
+    .selector-container {
+        border: 1px solid var(--gray2);
+    }
+
+    .selector-container div select {
+        border: 1px solid var(--gray1);
+    }
+
+    .selector-container div select option {
+        background-color: var(--gray0);
+        color: var(--gray5);
+    }
+}

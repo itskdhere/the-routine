@@ -1,74 +1,53 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --border-radius: 5px;
+  --gray0: #f8f8f8;
+  --gray1: #dbe1e8;
+  --gray2: #b2becd;
+  --gray3: #6c7983;
+  --gray4: #454e56;
+  --gray5: #2a2e35;
+  --gray6: #12181b;
+  --blue: #039dc4;
+  --purple: #a82dd1;
+  --yellow: #fff565;
+  --s-gray0: #fbffd4;
+  --s-gray1: #f7f8d0;
+  --s-gray2: #b6f880;
+  --s-gray3: #5ec72d;
+  --s-gray4: #3ea565;
+  --s-gray5: #005368;
+  --s-gray6: #003d4c;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.9);
-  background-color: #272727;
+  color: var(--gray0);
+  background-color: var(--gray5);
 
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--gray5);
+    background-color: var(--gray0);
   }
 }
 
-
-/*
-a:hover {
-    color: #747bff;
+body::-webkit-scrollbar {
+  display: none;
 }
-button {
-    background-color: #f9f9f9;
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: currentColor;
+  text-decoration: none;
 }
-a:hover {
-  color: #535bf2;
-  text-decoration: underline;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */

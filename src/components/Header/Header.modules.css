@@ -1,0 +1,48 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0px;
+    border-bottom: 1px solid var(--gray2);
+    user-select: none;
+}
+
+.app-name,
+.app-repo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.app-name {
+    margin-left: 15px;
+}
+
+.app-logo {
+    width: 36px;
+    transform: translate(0px, 2px);
+    margin-right: 3px;
+}
+
+.app-name h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0px 0px 0px 0px;
+}
+
+.app-repo {
+    margin-right: 15px;
+}
+
+.app-repo img {
+    width: 27px;
+}
+
+@media (prefers-color-scheme: light) {
+    .header {
+        border-bottom: 1px solid var(--gray3);
+    }
+}

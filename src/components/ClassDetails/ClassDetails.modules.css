@@ -1,0 +1,40 @@
+.class-details-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 90%;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 0px;
+    border: 1px solid var(--gray3);
+    border-radius: var(--border-radius);
+}
+
+.class-details-container div,
+.class-details-container div h4,
+.class-details-container div p {
+    margin: 0;
+}
+
+.class-details-container div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 40%;
+    padding: 5px 5px 10px 5px;
+    margin: 0;
+    background-color: var(--gray4);
+    border-radius: var(--border-radius);
+}
+
+@media (prefers-color-scheme: light) {
+    .class-details-container {
+        border: 1px solid var(--gray2);
+    }
+
+    .class-details-container div {
+        background-color: var(--gray1);
+    }
+}

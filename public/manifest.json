@@ -1,0 +1,44 @@
+{
+    "background_color": "#6c7983",
+    "dir": "auto",
+    "display": "standalone",
+    "name": "The Routine",
+    "orientation": "any",
+    "scope": "/",
+    "short_name": "The Routine",
+    "start_url": "/",
+    "theme_color": "#6c7983",
+    "icons": [
+        {
+            "purpose": "maskable",
+            "sizes": "512x512",
+            "src": "icon512_maskable.png",
+            "type": "image/png"
+        },
+        {
+            "purpose": "any",
+            "sizes": "512x512",
+            "src": "icon512_rounded.png",
+            "type": "image/png"
+        },
+        {
+            "purpose": "any",
+            "sizes": "512x512",
+            "src": "android-launchericon-512-512.png",
+            "type": "image/png"
+        },
+        {
+            "purpose": "any",
+            "sizes": "192x192",
+            "src": "android-launchericon-192-192.png",
+            "type": "image/png"
+        }
+    ],
+    "lang": "en",
+    "categories": [
+        "education",
+        "lifestyle",
+        "personalization",
+        "utilities"
+    ]
+}

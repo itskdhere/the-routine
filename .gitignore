@@ -1,6 +1,12 @@
-# misc.
+# Misc.
+data/
 temp/
 tmp/
+db/
+
+# Cloudflare
+.wrangler/
+wrangler.toml
 
 # Logs
 logs
