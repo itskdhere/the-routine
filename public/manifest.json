@@ -1,5 +1,5 @@
 {
-    "background_color": "#6c7983",
+    "background_color": "#a6a6a6",
     "dir": "auto",
     "display": "standalone",
     "name": "The Routine",
@@ -7,7 +7,7 @@
     "scope": "/",
     "short_name": "The Routine",
     "start_url": "/",
-    "theme_color": "#6c7983",
+    "theme_color": "#a6a6a6",
     "icons": [
         {
             "purpose": "maskable",
