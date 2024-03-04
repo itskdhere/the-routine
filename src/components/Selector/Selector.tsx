@@ -3,7 +3,7 @@ import { RoutineContext } from '../../App';
 import './Selector.modules.css';
 
 const Selector = () => {
-    const { selectedSection, setSelectedSection } = useContext(RoutineContext);
+    const { setSelectedSection } = useContext(RoutineContext);
 
     const handleSection = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedSection(e.target.value);
@@ -19,7 +19,7 @@ const Selector = () => {
             </div>
             <div>
                 <label htmlFor="section-selector" className="section-selector-label">Section: </label>
-                <select onChange={handleSection} defaultValue={selectedSection} name="section-selector" id="section-selector" className="section-selector">
+                <select onChange={handleSection} defaultValue={localStorage.getItem('previousSection') ?? '5'} name="section-selector" id="section-selector" className="section-selector">
                     {
                         [...Array(9)].map((_, index) => {
                             return (
