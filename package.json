@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "wrangler pages dev --live-reload=true --compatibility-date=2024-03-02 -- vite",
+    "dev": "wrangler pages dev --compatibility-date=2024-03-02 -- vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
