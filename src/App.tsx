@@ -7,13 +7,17 @@ import "./App.css";
 
 export const RoutineContext = createContext<any>(null);
 
-function App() {
-  const [selectedSection, setSelectedSection] = useState(localStorage.getItem('previousSection') ?? '5');
-  const [isRoutineAvailable, setIsRoutineAvailable] = useState(false);
-  const [isRoutineLoading, setIsRoutineLoading] = useState(true);
-  const [isRoutineError, setIsRoutineError] = useState(false);
-  const [routine, setRoutine] = useState([]);
+const days = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
+];
 
+function App() {
   useEffect(() => {
     console.log(`%c
   ________            ____              __  _          \r\n \/_  __\/ \/_  ___     \/ __ \\____  __  __\/ \/_(_)___  ___ \r\n  \/ \/ \/ __ \\\/ _ \\   \/ \/_\/ \/ __ \\\/ \/ \/ \/ __\/ \/ __ \\\/ _ \\\r\n \/ \/ \/ \/ \/ \/  __\/  \/ _, _\/ \/_\/ \/ \/_\/ \/ \/_\/ \/ \/ \/ \/  __\/\r\n\/_\/ \/_\/ \/_\/\\___\/  \/_\/ |_|\\____\/\\__,_\/\\__\/_\/_\/ \/_\/\\___\/ 
@@ -21,6 +25,20 @@ function App() {
   
 %c🔥 Developed by KD - @itskdhere 🔥
   `, `color: #b6f880`, `color: #fff565`);
+  }, []);
+
+  const [selectedSection, setSelectedSection] = useState(localStorage.getItem('previousSection') ?? '5');
+  const [isRoutineAvailable, setIsRoutineAvailable] = useState(false);
+  const [isRoutineLoading, setIsRoutineLoading] = useState(true);
+  const [isRoutineError, setIsRoutineError] = useState(false);
+  const [routine, setRoutine] = useState([]);
+  const [currentTime, setCurrentTime] = useState('⌛');
+
+  useEffect(() => {
+    setInterval(() => {
+      const date = new Date();
+      setCurrentTime(`${days[date.getDay()]} ${date.toLocaleTimeString()}`);
+    }, 1000);
   }, []);
 
   useEffect(() => {
@@ -49,6 +67,10 @@ function App() {
   return (
     <>
       <Header />
+      <div id="display-time">
+        <span id="time-icon"></span>
+        <span>{currentTime}</span>
+      </div>
       <main>
         <RoutineContext.Provider value={{ selectedSection, setSelectedSection, isRoutineAvailable, isRoutineLoading, isRoutineError, routine }}>
           <Selector />
