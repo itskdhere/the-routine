@@ -68,19 +68,19 @@ const ClassDetails = () => {
                     <p>{result.subject_name}</p>
                     <p>By {result.teacher_name}</p>
                     <p>At {result.room_number}</p>
-                    <p>From {result.start_time.substring(0, 5)}</p>
-                    <p>To {result.end_time.substring(0, 5)}</p>
+                    <p>From {result.start_time}</p>
+                    <p>To {result.end_time}</p>
                   </div>
                 }
                 {
-                  (result.day_name === nextClass.day_name && nextClass.subject_name !== '---') &&
+                  (result.day_name === nextClass.day_name) &&
                   <div key={result.teacher_name}>
                     <h4>Next Class</h4>
                     <p>{nextClass.subject_name}</p>
                     <p>By {nextClass.teacher_name}</p>
                     <p>At {nextClass.room_number}</p>
-                    <p>From {nextClass.start_time.substring(0, 5)}</p>
-                    <p>To {nextClass.end_time.substring(0, 5)}</p>
+                    <p>From {nextClass.start_time}</p>
+                    <p>To {nextClass.end_time}</p>
                   </div>
                 }
               </>

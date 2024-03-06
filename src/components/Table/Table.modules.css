@@ -33,14 +33,10 @@
 }
 
 .routine-table th {
-    padding: 10px 5px;
+    padding: 10px;
     background-color: var(--gray3);
     color: var(--gray0);
     border-bottom: 1px solid var(--gray2);
-}
-
-.routine-table th:first-child {
-    padding-left: 15px;
 }
 
 .routine-table tr:nth-child(even) {

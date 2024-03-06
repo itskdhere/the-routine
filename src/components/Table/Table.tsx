@@ -56,7 +56,7 @@ const Table = () => {
       <table className='routine-table'>
         <thead>
           <tr>
-            <th>Y-1-Sec-{selectedSection}</th>
+            <th>CSE-Y-1-Sec-{selectedSection}</th>
             {
               times.map((time) => {
                 return (
