@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 import Header from "./components/Header";
 import Selector from "./components/Selector";
 import ClassDetails from "./components/ClassDetails";
@@ -17,13 +17,27 @@ const days = [
   'Saturday'
 ];
 
+const times = [
+  '8:00-8:50',
+  '8:50-9:40',
+  '9:40-10:30',
+  '10:30-11:00',
+  '11:00-11:50',
+  '11:50-12:40',
+  '12:40-1:30',
+  '1:30-2:20',
+  '2:20-3:00',
+  '3:00-3:50',
+  '3:50-4:40'
+];
+
 function App() {
   useEffect(() => {
     console.log(`%c
   ________            ____              __  _          \r\n \/_  __\/ \/_  ___     \/ __ \\____  __  __\/ \/_(_)___  ___ \r\n  \/ \/ \/ __ \\\/ _ \\   \/ \/_\/ \/ __ \\\/ \/ \/ \/ __\/ \/ __ \\\/ _ \\\r\n \/ \/ \/ \/ \/ \/  __\/  \/ _, _\/ \/_\/ \/ \/_\/ \/ \/_\/ \/ \/ \/ \/  __\/\r\n\/_\/ \/_\/ \/_\/\\___\/  \/_\/ |_|\\____\/\\__,_\/\\__\/_\/_\/ \/_\/\\___\/ 
   
   
-%c🔥 Developed by KD - @itskdhere 🔥
+%c🔥 Developed & Maintained by KD (@itskdhere) 🔥
   `, `color: #b6f880`, `color: #fff565`);
   }, []);
 
@@ -72,7 +86,7 @@ function App() {
         <span>{currentTime}</span>
       </div>
       <main>
-        <RoutineContext.Provider value={{ selectedSection, setSelectedSection, isRoutineAvailable, isRoutineLoading, isRoutineError, routine }}>
+        <RoutineContext.Provider value={{ selectedSection, setSelectedSection, isRoutineAvailable, isRoutineLoading, isRoutineError, routine, days, times }}>
           <Selector />
           <ClassDetails />
           <Table />
@@ -80,10 +94,11 @@ function App() {
       </main>
       <footer>
         <p>
-          Developed by KD -&nbsp;
+          Developed & Maintained by KD&nbsp;&#40;
           <a href="https://itskdhere.eu.org" target="_blank" rel="noopener noreferrer">
             @itskdhere
           </a>
+          &#41;
         </p>
       </footer>
     </>

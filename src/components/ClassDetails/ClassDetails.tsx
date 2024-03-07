@@ -12,18 +12,8 @@ interface IRoutine {
   room_number: string
 }
 
-const days = [
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday'
-];
-
 const ClassDetails = () => {
-  const { selectedSection, isRoutineAvailable, isRoutineLoading, isRoutineError, routine } = useContext(RoutineContext);
+  const { selectedSection, isRoutineAvailable, isRoutineLoading, isRoutineError, routine, days } = useContext(RoutineContext);
   const classDays = useRef<string[]>([]);
   const startingClass = useRef<IRoutine[]>([]);
 
@@ -73,7 +63,7 @@ const ClassDetails = () => {
                   </div>
                 }
                 {
-                  (result.day_name === nextClass.day_name) &&
+                  (result.day_name === nextClass.day_name && nextClass.subject_name !== '---') &&
                   <div key={result.teacher_name}>
                     <h4>Next Class</h4>
                     <p>{nextClass.subject_name}</p>
@@ -89,7 +79,7 @@ const ClassDetails = () => {
         })
       }
       {
-        days.map((day) => {
+        days.map((day: string) => {
           if (!classDays.current.includes(day) && day === currentDay) {
             return (
               <div key={day}>
@@ -100,7 +90,7 @@ const ClassDetails = () => {
         })
       }
       {
-        days.map((day) => {
+        days.map((day: string) => {
           if (day === currentDay && (new Date('2024-01-01 8:00:00')).getTime() >= (new Date('2024-01-01 ' + currentTime)).getTime()) {
             return startingClass.current.map((result) => {
               if (result.day_name == currentDay)

@@ -12,22 +12,8 @@ interface IRoutine {
   room_number: string
 }
 
-const times = [
-  '8:00-8:50',
-  '8:50-9:40',
-  '9:40-10:30',
-  '10:30-11:00',
-  '11:00-11:50',
-  '11:50-12:40',
-  '12:40-1:30',
-  '1:30-2:20',
-  '2:20-3:00',
-  '3:00-3:50',
-  '3:50-4:40'
-];
-
 const Table = () => {
-  const { selectedSection, isRoutineAvailable, isRoutineLoading, isRoutineError, routine } = useContext(RoutineContext);
+  const { selectedSection, isRoutineAvailable, isRoutineLoading, isRoutineError, routine, times } = useContext(RoutineContext);
   const dayRef = useRef('');
   const noRoutineStyles = {
     margin: '10px 0px 350px 0px'
@@ -58,7 +44,7 @@ const Table = () => {
           <tr>
             <th>CSE-Y-1-Sec-{selectedSection}</th>
             {
-              times.map((time) => {
+              times.map((time: string) => {
                 return (
                   <th key={time}>{time}</th>
                 )
