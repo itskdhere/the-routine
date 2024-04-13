@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "wrangler pages dev --compatibility-date=2024-03-02 -- vite",
+    "dev": "wrangler pages dev --compatibility-date=2024-04-10 -- vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -25,6 +25,6 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "typescript": "^5.2.2",
     "vite": "^5.1.4",
-    "wrangler": "^3.31.0"
+    "wrangler": "^3.50.0"
   }
 }
