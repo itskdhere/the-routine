@@ -23,7 +23,7 @@
 
 .app-logo {
     width: 36px;
-    transform: translate(0px, 1px);
+    transform: translate(0px, 0.5px);
     margin-right: 3px;
 }
 
