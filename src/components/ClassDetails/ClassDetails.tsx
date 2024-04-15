@@ -1,4 +1,4 @@
-import { useRef, useContext } from 'react';
+import { useEffect, useRef, useContext } from 'react';
 import { RoutineContext } from '../../App';
 import './ClassDetails.modules.css';
 
@@ -15,7 +15,21 @@ interface IRoutine {
 const ClassDetails = () => {
   const { selectedSection, isRoutineAvailable, isRoutineLoading, isRoutineError, routine, days } = useContext(RoutineContext);
   const classDays = useRef<string[]>([]);
-  const startingClass = useRef<IRoutine[]>([]);
+  const startingClassRef = useRef<IRoutine[]>([]);
+  const isEndingClassRef = useRef<boolean>(false);
+
+  useEffect(() => {
+    const startingClass: IRoutine[] = [];
+    classDays.current = [];
+    startingClassRef.current = [];
+    routine.map((result: IRoutine) => {
+      if (!classDays.current.includes(result.day_name) && result.subject_name !== '---') {
+        classDays.current.push(result.day_name);
+        startingClass.push(result);
+      }
+    });
+    startingClassRef.current = startingClass;
+  }, [routine]);
 
   const date = new Date();
   const currentDay = days[date.getDay()];
@@ -43,12 +57,13 @@ const ClassDetails = () => {
     <section className='class-details-container'>
       {
         routine.map((result: IRoutine) => {
-          if (!classDays.current.includes(result.day_name) && result.subject_name !== '---') {
-            classDays.current.push(result.day_name);
-            startingClass.current.push(result);
-          }
           const nextClass = routine[routine.indexOf(result) + 1];
           if (result.day_name == currentDay && ((new Date('2024-01-01 ' + result.start_time)).getTime()) <= ((new Date('2024-01-01 ' + currentTime)).getTime()) && ((new Date('2024-01-01 ' + result.end_time)).getTime()) >= ((new Date('2024-01-01 ' + currentTime)).getTime())) {
+            if (result.day_name === nextClass.day_name && nextClass.subject_name === '---') {
+              isEndingClassRef.current = true;
+            } else {
+              isEndingClassRef.current = false;
+            }
             return (
               <>
                 {
@@ -79,6 +94,12 @@ const ClassDetails = () => {
         })
       }
       {
+        (isEndingClassRef.current) &&
+        <div key='fun'>
+          <h4>No More Classes Today</h4>
+        </div>
+      }
+      {
         days.map((day: string) => {
           if (!classDays.current.includes(day) && day === currentDay) {
             return (
@@ -92,7 +113,7 @@ const ClassDetails = () => {
       {
         days.map((day: string) => {
           if (day === currentDay && (new Date('2024-01-01 8:00:00')).getTime() >= (new Date('2024-01-01 ' + currentTime)).getTime()) {
-            return startingClass.current.map((result) => {
+            return startingClassRef.current.map((result) => {
               if (result.day_name == currentDay)
                 return (
                   <div key={result.room_number}>
@@ -107,7 +128,7 @@ const ClassDetails = () => {
             })
           }
           if (day === currentDay && (new Date('2024-01-01 16:40:00')).getTime() <= (new Date('2024-01-01 ' + currentTime)).getTime()) {
-            return startingClass.current.map((result) => {
+            return startingClassRef.current.map((result) => {
               if (result.day_name == days[days.indexOf(currentDay) + 1])
                 return (
                   <div key={result.room_number}>
@@ -124,7 +145,7 @@ const ClassDetails = () => {
           }
         })
       }
-    </section>
+    </section >
   );
 }
 
