@@ -4,6 +4,9 @@ import Selector from "./components/Selector";
 import ClassDetails from "./components/ClassDetails";
 import Table from "./components/Table";
 import "./App.css";
+import githubLogoForDarkMode from './assets/github-mark-white.svg';
+import githubLogoForLightMode from './assets/github-mark.svg';
+import decor from "./utils/decor";
 
 export const RoutineContext = createContext<any>(null);
 
@@ -32,27 +35,27 @@ const times = [
 ];
 
 function App() {
-  useEffect(() => {
-    console.log(`%c
-  ________            ____              __  _          \r\n \/_  __\/ \/_  ___     \/ __ \\____  __  __\/ \/_(_)___  ___ \r\n  \/ \/ \/ __ \\\/ _ \\   \/ \/_\/ \/ __ \\\/ \/ \/ \/ __\/ \/ __ \\\/ _ \\\r\n \/ \/ \/ \/ \/ \/  __\/  \/ _, _\/ \/_\/ \/ \/_\/ \/ \/_\/ \/ \/ \/ \/  __\/\r\n\/_\/ \/_\/ \/_\/\\___\/  \/_\/ |_|\\____\/\\__,_\/\\__\/_\/_\/ \/_\/\\___\/ 
-  
-  
-%c🔥 Developed & Maintained by KD (@itskdhere) 🔥
-  `, `color: #b6f880`, `color: #fff565`);
-  }, []);
-
   const [selectedSection, setSelectedSection] = useState(localStorage.getItem('previousSection') ?? '5');
   const [isRoutineAvailable, setIsRoutineAvailable] = useState(false);
   const [isRoutineLoading, setIsRoutineLoading] = useState(true);
   const [isRoutineError, setIsRoutineError] = useState(false);
   const [routine, setRoutine] = useState([]);
   const [currentTime, setCurrentTime] = useState('⌛');
+  const [prefersDarkMode, setPrefersDarkMode] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   useEffect(() => {
+    decor();
+
     setInterval(() => {
       const date = new Date();
       setCurrentTime(`${days[date.getDay()]} ${date.toLocaleTimeString()}`);
     }, 1000);
+
+    if (!window.matchMedia) return;
+    const query = window.matchMedia('(prefers-color-scheme: dark)');
+    const prefersDarkMode = query.matches;
+    setPrefersDarkMode(prefersDarkMode);
+    query.addEventListener('change', (event) => setPrefersDarkMode(event.matches));
   }, []);
 
   useEffect(() => {
@@ -100,6 +103,10 @@ function App() {
           </a>
           &#41;
         </p>
+        <a id="github-repo-link" href="https://github.com/itskdhere/the-routine" target="_blank">
+          <img src={prefersDarkMode ? githubLogoForDarkMode : githubLogoForLightMode} alt="github-logo" />
+          <p>itskdhere/the-routine</p>
+        </a>
       </footer>
     </>
   );

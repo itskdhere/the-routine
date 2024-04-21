@@ -53,11 +53,35 @@ footer {
 
 footer p {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.97rem;
 }
 
 footer p a {
     text-decoration: underline;
+}
+
+#github-repo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    text-decoration: none;
+    margin-top: 4px;
+    text-decoration: underline;
+}
+
+#github-repo-link img {
+    --_size: 0.95rem;
+    fill: var(--gray0);
+    height: var(--_size);
+    width: var(--_size);
+    margin-right: 5px;
+    translate: 0px 0.5px;
+}
+
+#github-repo-link p {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 0.95rem;
 }
 
 @media (prefers-color-scheme: light) {
