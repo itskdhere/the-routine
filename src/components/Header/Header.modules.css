@@ -3,13 +3,13 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 10px 0px;
+    padding: 8px 0px;
     border-bottom: 1px solid var(--gray2);
     user-select: none;
 }
 
 .app-name,
-.app-repo {
+.app-action {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,28 +21,38 @@
     margin-left: 15px;
 }
 
-.app-logo {
+.app-name-logo {
     width: 36px;
     transform: translate(0px, 0.5px);
     margin-right: 3px;
 }
 
-.app-name h1 {
+.app-name-text {
     font-size: 1.2rem;
     font-weight: bold;
     margin: 0px 0px 0px 0px;
 }
 
-.app-repo {
+.app-action {
     margin-right: 15px;
 }
 
-.app-repo img {
-    width: 27px;
+.app-action:hover {
+    cursor: pointer;
+}
+
+.app-action svg {
+    --_size: 25px;
+    fill: var(--gray0);
+    height: var(--_size);
+    width: var(--_size);
 }
 
 @media (prefers-color-scheme: light) {
     .header {
         border-bottom: 1px solid var(--gray3);
+    }
+    .app-action svg {
+        fill: var(--gray5);
     }
 }
